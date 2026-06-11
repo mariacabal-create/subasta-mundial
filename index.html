@@ -7,7 +7,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#1a6b2f;--green2:#23903f;--gold:#f5c800;--white:#fff;--gray:#8a9180;--dark:#111a0f;--border:#2a3a24;--card:#1a2a16;--card2:#0e1a0c}
+:root{--green:#1a6b2f;--green2:#23903f;--gold:#f5c800;--white:#fff;--gray:#8a9180;--dark:#111a0f;--border:#2a3a24;--card:#1a2a16;--card2:#0e1a0c;--red:#c0392b}
 body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--white);min-height:100vh}
 header{background:var(--green);border-bottom:3px solid var(--gold);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:50}
 .logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--gold);line-height:1}
@@ -15,12 +15,8 @@ header{background:var(--green);border-bottom:3px solid var(--gold);padding:12px 
 .header-sub{font-size:10px;color:rgba(255,255,255,0.65);letter-spacing:1px;margin-top:2px}
 .limit-badge{background:var(--gold);color:var(--dark);font-weight:700;font-size:11px;padding:5px 12px;border-radius:20px}
 .group-badge{background:rgba(255,255,255,0.15);color:var(--white);font-size:11px;padding:4px 10px;border-radius:20px;display:none}
-
-/* SCREENS */
 #screen-group,#screen-identity,#screen-main{display:none}
 #screen-group.active,#screen-identity.active,#screen-main.active{display:block}
-
-/* GROUP SCREEN */
 .center-screen{max-width:420px;margin:60px auto;padding:0 20px;text-align:center}
 .center-screen h2{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--gold);margin-bottom:8px}
 .center-screen p{color:var(--gray);font-size:13px;margin-bottom:28px;line-height:1.6}
@@ -38,23 +34,17 @@ header{background:var(--green);border-bottom:3px solid var(--gold);padding:12px 
 .code-btn{background:var(--gold);color:var(--dark);border:none;border-radius:8px;padding:10px 18px;font-weight:700;font-size:13px;cursor:pointer}
 .code-btn:hover{background:#e6b800}
 .code-error{color:#e74c3c;font-size:12px;margin-top:8px;min-height:18px}
-
-/* IDENTITY SCREEN */
 .name-input-big{width:100%;background:var(--card);border:1px solid #3a5030;border-radius:8px;padding:12px 16px;color:var(--white);font-size:16px;font-family:'Inter',sans-serif;outline:none;margin-bottom:12px}
 .name-input-big:focus{border-color:var(--gold)}
 .name-btn-big{width:100%;background:var(--gold);color:var(--dark);border:none;border-radius:8px;padding:12px;font-weight:700;font-size:15px;cursor:pointer;margin-bottom:10px}
 .name-btn-big:hover{background:#e6b800}
 .change-group-link{font-size:11px;color:var(--gray);cursor:pointer;text-decoration:underline;background:none;border:none}
-
-/* MAIN */
 main{max-width:1100px;margin:0 auto;padding:20px 14px 80px}
 .top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
 .user-info{font-size:13px;color:var(--gold);font-weight:600}
 .change-btn{background:none;border:1px solid var(--border);color:var(--gray);border-radius:6px;padding:5px 12px;font-size:11px;cursor:pointer}
 .change-btn:hover{border-color:var(--gold);color:var(--gold)}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;color:var(--gold);margin-bottom:12px;padding-bottom:5px;border-bottom:1px solid var(--border)}
-
-/* VIEWS */
 #matches-view,#scores-view{display:none}
 #matches-view.active,#scores-view.active{display:block}
 .back-btn{display:flex;align-items:center;gap:8px;background:none;border:1px solid var(--border);color:var(--gray);border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer;margin-bottom:18px;transition:all .15s}
@@ -63,6 +53,10 @@ main{max-width:1100px;margin:0 auto;padding:20px 14px 80px}
 .match-teams{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--white)}
 .match-vs{color:var(--gold);font-size:22px;margin:0 8px}
 .match-meta{font-size:11px;color:var(--gray);margin-top:6px}
+.match-totals{display:flex;gap:16px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.match-total-pill{background:var(--card2);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px}
+.match-total-pill span{color:var(--gold);font-weight:700}
+.match-closed-banner{background:#7b1a1a;border:1px solid #c0392b;border-radius:8px;padding:8px 14px;font-size:12px;color:#ffaaaa;margin-top:10px;display:inline-block}
 .groups-container{display:flex;flex-direction:column;gap:24px}
 .group-title{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .group-title::after{content:'';flex:1;height:1px;background:var(--border)}
@@ -70,12 +64,18 @@ main{max-width:1100px;margin:0 auto;padding:20px 14px 80px}
 .match-card{background:var(--card);border:1.5px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;transition:all .15s}
 .match-card:hover{border-color:var(--gold);transform:translateY(-2px)}
 .match-card.has-bids{border-color:var(--green2)}
+.match-card.closed{border-color:#7b2a2a;opacity:.85}
 .mc-teams{font-weight:700;font-size:13px;text-align:center;margin-bottom:5px;line-height:1.4}
 .mc-vs{color:var(--gold);font-size:11px;margin:0 4px}
-.mc-date{font-size:10px;color:var(--gray);text-align:center;margin-bottom:8px}
-.mc-stats{display:flex;justify-content:space-between;align-items:center}
+.mc-date{font-size:10px;color:var(--gray);text-align:center;margin-bottom:4px}
+.mc-kickoff{font-size:10px;text-align:center;margin-bottom:6px;font-weight:600}
+.mc-kickoff.open{color:#2ecc71}
+.mc-kickoff.soon{color:var(--gold)}
+.mc-kickoff.closed{color:#e74c3c}
+.mc-stats{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px}
 .mc-bid-count{font-size:10px;color:var(--gray)}
 .mc-top-bid{font-size:11px;color:var(--gold);font-weight:600}
+.mc-pot{font-size:10px;color:#aaa}
 .mc-arrow{color:var(--gray);font-size:14px}
 .scores-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
 .score-card{background:var(--card);border:1.5px solid var(--border);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px;transition:all .15s}
@@ -101,6 +101,7 @@ main{max-width:1100px;margin:0 auto;padding:20px 14px 80px}
 .bid-btn:hover:not(:disabled){background:#2db84f}
 .bid-btn:disabled{opacity:.35;cursor:not-allowed}
 .bid-btn.locked{background:#555;cursor:not-allowed}
+.bid-btn.closed-match{background:#7b1a1a;cursor:not-allowed}
 .card-msg{font-size:9px;text-align:center;min-height:12px;color:var(--gray)}
 .card-msg.err{color:#e74c3c}
 .card-msg.ok{color:#2ecc71}
@@ -124,11 +125,10 @@ main{max-width:1100px;margin:0 auto;padding:20px 14px 80px}
 </style>
 </head>
 <body>
-
 <header>
   <div>
     <div class="logo">⚽ Subasta <span>Mundial 2026</span></div>
-    <div class="header-sub">Elige tu grupo · Selecciona partido · Puja</div>
+    <div class="header-sub">Grupo · Partido · Marcador · Puja</div>
   </div>
   <div style="display:flex;align-items:center;gap:8px">
     <span class="group-badge" id="group-badge"></span>
@@ -136,7 +136,6 @@ main{max-width:1100px;margin:0 auto;padding:20px 14px 80px}
   </div>
 </header>
 
-<!-- SCREEN 1: CHOOSE GROUP -->
 <div id="screen-group" class="active">
   <div class="center-screen">
     <h2>⚽ Mundial 2026</h2>
@@ -151,7 +150,6 @@ main{max-width:1100px;margin:0 auto;padding:20px 14px 80px}
   </div>
 </div>
 
-<!-- SCREEN 2: NAME -->
 <div id="screen-identity">
   <div class="center-screen">
     <h2 id="identity-title">Grupo</h2>
@@ -162,19 +160,16 @@ main{max-width:1100px;margin:0 auto;padding:20px 14px 80px}
   </div>
 </div>
 
-<!-- SCREEN 3: MAIN APP -->
 <div id="screen-main">
   <main>
     <div class="top-bar">
       <span class="user-info" id="user-info"></span>
       <button class="change-btn" id="change-user-btn">Cambiar usuario</button>
     </div>
-
     <div id="matches-view">
       <div id="groups-container" class="groups-container"></div>
       <div class="leaderboard" id="leaderboard"></div>
     </div>
-
     <div id="scores-view">
       <button class="back-btn" id="back-btn">← Volver a partidos</button>
       <div class="match-header" id="match-header"></div>
@@ -195,36 +190,120 @@ import { getFirestore, doc, setDoc, onSnapshot, getDoc } from 'https://www.gstat
 
 const cfg={apiKey:"AIzaSyCqVNC2hU83IxbeoTU4eRvrfl9X8aRkIZg",authDomain:"subasta-marcadores.firebaseapp.com",projectId:"subasta-marcadores",storageBucket:"subasta-marcadores.firebasestorage.app",messagingSenderId:"131558231258",appId:"1:131558231258:web:1c2350d0496ef42a1ea9e3"};
 
-// ── GROUPS CONFIG ─────────────────────────────────────────────────
-// Para agregar un grupo: { id, name, desc, code }
-// El "code" es la contraseña que compartes con ese grupo
-const PREDEFINED_GROUPS = [
-  { id:'empatia',  name:'La Empatía',  desc:'Equipo de trabajo', code:'EMPATIA2026' },
-  { id:'familia',  name:'Familia',     desc:'Grupo familiar',    code:'FAMILIA2026' },
+const PREDEFINED_GROUPS=[
+  {id:'empatia', name:'La Empatía', desc:'Equipo de trabajo', code:'EMPATIA2026'},
+  {id:'familia',  name:'Familia',   desc:'Grupo familiar',   code:'FAMILIA2026'},
 ];
-// Cualquier código válido que no esté arriba puede agregarse aquí
-// o simplemente compartir el código y la app lo acepta
-// ─────────────────────────────────────────────────────────────────
+
+// Kickoff times in Colombia time (UTC-5)
+// Format: [year, month(0-based), day, hour, minute]
+const MATCHES_DATA=[
+  // GRUPO A
+  {id:"a1",home:"México",away:"Sudáfrica",date:"Jun 11",ko:[2026,5,11,14,0]},
+  {id:"a2",home:"Corea del Sur",away:"Rep. Checa",date:"Jun 11",ko:[2026,5,11,21,0]},
+  {id:"a3",home:"Rep. Checa",away:"Sudáfrica",date:"Jun 18",ko:[2026,5,18,11,0]},
+  {id:"a4",home:"México",away:"Corea del Sur",date:"Jun 18",ko:[2026,5,18,20,0]},
+  {id:"a5",home:"Sudáfrica",away:"Corea del Sur",date:"Jun 25",ko:[2026,5,25,14,0]},
+  {id:"a6",home:"México",away:"Rep. Checa",date:"Jun 25",ko:[2026,5,25,14,0]},
+  // GRUPO B
+  {id:"b1",home:"Canadá",away:"Bosnia-Herzegovina",date:"Jun 12",ko:[2026,5,12,14,0]},
+  {id:"b2",home:"Qatar",away:"Suiza",date:"Jun 13",ko:[2026,5,13,14,0]},
+  {id:"b3",home:"Suiza",away:"Bosnia-Herzegovina",date:"Jun 18",ko:[2026,5,18,14,0]},
+  {id:"b4",home:"Canadá",away:"Qatar",date:"Jun 18",ko:[2026,5,18,17,0]},
+  {id:"b5",home:"Bosnia-Herzegovina",away:"Qatar",date:"Jun 24",ko:[2026,5,24,14,0]},
+  {id:"b6",home:"Suiza",away:"Canadá",date:"Jun 24",ko:[2026,5,24,14,0]},
+  // GRUPO C
+  {id:"c1",home:"Brasil",away:"Marruecos",date:"Jun 13",ko:[2026,5,13,17,0]},
+  {id:"c2",home:"Haití",away:"Escocia",date:"Jun 13",ko:[2026,5,13,20,0]},
+  {id:"c3",home:"Escocia",away:"Marruecos",date:"Jun 19",ko:[2026,5,19,17,0]},
+  {id:"c4",home:"Brasil",away:"Haití",date:"Jun 19",ko:[2026,5,19,19,30]},
+  {id:"c5",home:"Marruecos",away:"Haití",date:"Jun 25",ko:[2026,5,25,18,0]},
+  {id:"c6",home:"Escocia",away:"Brasil",date:"Jun 25",ko:[2026,5,25,18,0]},
+  // GRUPO D
+  {id:"d1",home:"Estados Unidos",away:"Paraguay",date:"Jun 12",ko:[2026,5,12,20,0]},
+  {id:"d2",home:"Australia",away:"Turquía",date:"Jun 13",ko:[2026,5,13,23,0]},
+  {id:"d3",home:"Estados Unidos",away:"Australia",date:"Jun 19",ko:[2026,5,19,14,0]},
+  {id:"d4",home:"Turquía",away:"Paraguay",date:"Jun 19",ko:[2026,5,19,22,0]},
+  {id:"d5",home:"Paraguay",away:"Australia",date:"Jun 25",ko:[2026,5,25,22,0]},
+  {id:"d6",home:"Turquía",away:"Estados Unidos",date:"Jun 25",ko:[2026,5,25,22,0]},
+  // GRUPO E
+  {id:"e1",home:"Alemania",away:"Curazao",date:"Jun 14",ko:[2026,5,14,12,0]},
+  {id:"e2",home:"Costa de Marfil",away:"Ecuador",date:"Jun 14",ko:[2026,5,14,18,0]},
+  {id:"e3",home:"Alemania",away:"Costa de Marfil",date:"Jun 20",ko:[2026,5,20,15,0]},
+  {id:"e4",home:"Ecuador",away:"Curazao",date:"Jun 20",ko:[2026,5,20,21,0]},
+  {id:"e5",home:"Curazao",away:"Costa de Marfil",date:"Jun 25",ko:[2026,5,25,14,0]},
+  {id:"e6",home:"Ecuador",away:"Alemania",date:"Jun 25",ko:[2026,5,25,14,0]},
+  // GRUPO F
+  {id:"f1",home:"Países Bajos",away:"Japón",date:"Jun 14",ko:[2026,5,14,15,0]},
+  {id:"f2",home:"Suecia",away:"Túnez",date:"Jun 14",ko:[2026,5,14,21,0]},
+  {id:"f3",home:"Países Bajos",away:"Suecia",date:"Jun 20",ko:[2026,5,20,12,0]},
+  {id:"f4",home:"Túnez",away:"Japón",date:"Jun 20",ko:[2026,5,20,23,0]},
+  {id:"f5",home:"Japón",away:"Suecia",date:"Jun 26",ko:[2026,5,26,14,0]},
+  {id:"f6",home:"Túnez",away:"Países Bajos",date:"Jun 26",ko:[2026,5,26,14,0]},
+  // GRUPO G
+  {id:"g1",home:"Bélgica",away:"Egipto",date:"Jun 15",ko:[2026,5,15,14,0]},
+  {id:"g2",home:"Irán",away:"Nueva Zelanda",date:"Jun 15",ko:[2026,5,15,20,0]},
+  {id:"g3",home:"Bélgica",away:"Irán",date:"Jun 21",ko:[2026,5,21,14,0]},
+  {id:"g4",home:"Nueva Zelanda",away:"Egipto",date:"Jun 21",ko:[2026,5,21,20,0]},
+  {id:"g5",home:"Egipto",away:"Irán",date:"Jun 26",ko:[2026,5,26,18,0]},
+  {id:"g6",home:"Nueva Zelanda",away:"Bélgica",date:"Jun 26",ko:[2026,5,26,18,0]},
+  // GRUPO H
+  {id:"h1",home:"España",away:"Cabo Verde",date:"Jun 15",ko:[2026,5,15,11,0]},
+  {id:"h2",home:"Arabia Saudita",away:"Uruguay",date:"Jun 15",ko:[2026,5,15,17,0]},
+  {id:"h3",home:"España",away:"Arabia Saudita",date:"Jun 21",ko:[2026,5,21,11,0]},
+  {id:"h4",home:"Uruguay",away:"Cabo Verde",date:"Jun 21",ko:[2026,5,21,17,0]},
+  {id:"h5",home:"Cabo Verde",away:"Arabia Saudita",date:"Jun 26",ko:[2026,5,26,22,0]},
+  {id:"h6",home:"Uruguay",away:"España",date:"Jun 26",ko:[2026,5,26,22,0]},
+  // GRUPO I
+  {id:"i1",home:"Francia",away:"Senegal",date:"Jun 16",ko:[2026,5,16,14,0]},
+  {id:"i2",home:"Irak",away:"Noruega",date:"Jun 16",ko:[2026,5,16,17,0]},
+  {id:"i3",home:"Francia",away:"Irak",date:"Jun 22",ko:[2026,5,22,16,0]},
+  {id:"i4",home:"Noruega",away:"Senegal",date:"Jun 22",ko:[2026,5,22,19,0]},
+  {id:"i5",home:"Senegal",away:"Irak",date:"Jun 26",ko:[2026,5,26,14,0]},
+  {id:"i6",home:"Noruega",away:"Francia",date:"Jun 26",ko:[2026,5,26,14,0]},
+  // GRUPO J
+  {id:"j1",home:"Argentina",away:"Argelia",date:"Jun 16",ko:[2026,5,16,20,0]},
+  {id:"j2",home:"Austria",away:"Jordania",date:"Jun 16",ko:[2026,5,16,23,0]},
+  {id:"j3",home:"Argentina",away:"Austria",date:"Jun 22",ko:[2026,5,22,12,0]},
+  {id:"j4",home:"Jordania",away:"Argelia",date:"Jun 22",ko:[2026,5,22,23,0]},
+  {id:"j5",home:"Argelia",away:"Austria",date:"Jun 26",ko:[2026,5,26,18,0]},
+  {id:"j6",home:"Jordania",away:"Argentina",date:"Jun 26",ko:[2026,5,26,18,0]},
+  // GRUPO K
+  {id:"k1",home:"Portugal",away:"RD Congo",date:"Jun 17",ko:[2026,5,17,12,0]},
+  {id:"k2",home:"Uzbekistán",away:"Colombia",date:"Jun 17",ko:[2026,5,17,21,0]},
+  {id:"k3",home:"Portugal",away:"Uzbekistán",date:"Jun 23",ko:[2026,5,23,12,0]},
+  {id:"k4",home:"Colombia",away:"RD Congo",date:"Jun 23",ko:[2026,5,23,21,0]},
+  {id:"k5",home:"RD Congo",away:"Uzbekistán",date:"Jun 27",ko:[2026,5,27,14,0]},
+  {id:"k6",home:"Colombia",away:"Portugal",date:"Jun 27",ko:[2026,5,27,14,0]},
+  // GRUPO L
+  {id:"l1",home:"Inglaterra",away:"Croacia",date:"Jun 17",ko:[2026,5,17,15,0]},
+  {id:"l2",home:"Ghana",away:"Panamá",date:"Jun 17",ko:[2026,5,17,18,0]},
+  {id:"l3",home:"Inglaterra",away:"Ghana",date:"Jun 23",ko:[2026,5,23,15,0]},
+  {id:"l4",home:"Panamá",away:"Croacia",date:"Jun 23",ko:[2026,5,23,18,0]},
+  {id:"l5",home:"Croacia",away:"Ghana",date:"Jun 27",ko:[2026,5,27,18,0]},
+  {id:"l6",home:"Panamá",away:"Inglaterra",date:"Jun 27",ko:[2026,5,27,18,0]},
+];
 
 const GROUPS_FIFA=[
-  {name:"Grupo A",matches:[{id:"a1",home:"México",away:"Sudáfrica",date:"Jun 11"},{id:"a2",home:"Corea del Sur",away:"Rep. Checa",date:"Jun 11"},{id:"a3",home:"Rep. Checa",away:"Sudáfrica",date:"Jun 18"},{id:"a4",home:"México",away:"Corea del Sur",date:"Jun 18"},{id:"a5",home:"Sudáfrica",away:"Corea del Sur",date:"Jun 25"},{id:"a6",home:"México",away:"Rep. Checa",date:"Jun 25"}]},
-  {name:"Grupo B",matches:[{id:"b1",home:"Canadá",away:"Bosnia-Herzegovina",date:"Jun 12"},{id:"b2",home:"Qatar",away:"Suiza",date:"Jun 13"},{id:"b3",home:"Suiza",away:"Bosnia-Herzegovina",date:"Jun 18"},{id:"b4",home:"Canadá",away:"Qatar",date:"Jun 18"},{id:"b5",home:"Bosnia-Herzegovina",away:"Qatar",date:"Jun 24"},{id:"b6",home:"Suiza",away:"Canadá",date:"Jun 24"}]},
-  {name:"Grupo C",matches:[{id:"c1",home:"Brasil",away:"Marruecos",date:"Jun 13"},{id:"c2",home:"Haití",away:"Escocia",date:"Jun 13"},{id:"c3",home:"Escocia",away:"Marruecos",date:"Jun 19"},{id:"c4",home:"Brasil",away:"Haití",date:"Jun 19"},{id:"c5",home:"Marruecos",away:"Haití",date:"Jun 25"},{id:"c6",home:"Escocia",away:"Brasil",date:"Jun 25"}]},
-  {name:"Grupo D",matches:[{id:"d1",home:"Estados Unidos",away:"Paraguay",date:"Jun 12"},{id:"d2",home:"Australia",away:"Turquía",date:"Jun 13"},{id:"d3",home:"Estados Unidos",away:"Australia",date:"Jun 19"},{id:"d4",home:"Turquía",away:"Paraguay",date:"Jun 19"},{id:"d5",home:"Paraguay",away:"Australia",date:"Jun 25"},{id:"d6",home:"Turquía",away:"Estados Unidos",date:"Jun 25"}]},
-  {name:"Grupo E",matches:[{id:"e1",home:"Alemania",away:"Curazao",date:"Jun 14"},{id:"e2",home:"Costa de Marfil",away:"Ecuador",date:"Jun 14"},{id:"e3",home:"Alemania",away:"Costa de Marfil",date:"Jun 20"},{id:"e4",home:"Ecuador",away:"Curazao",date:"Jun 20"},{id:"e5",home:"Curazao",away:"Costa de Marfil",date:"Jun 25"},{id:"e6",home:"Ecuador",away:"Alemania",date:"Jun 25"}]},
-  {name:"Grupo F",matches:[{id:"f1",home:"Países Bajos",away:"Japón",date:"Jun 14"},{id:"f2",home:"Suecia",away:"Túnez",date:"Jun 14"},{id:"f3",home:"Países Bajos",away:"Suecia",date:"Jun 20"},{id:"f4",home:"Túnez",away:"Japón",date:"Jun 20"},{id:"f5",home:"Japón",away:"Suecia",date:"Jun 26"},{id:"f6",home:"Túnez",away:"Países Bajos",date:"Jun 26"}]},
-  {name:"Grupo G",matches:[{id:"g1",home:"Bélgica",away:"Egipto",date:"Jun 15"},{id:"g2",home:"Irán",away:"Nueva Zelanda",date:"Jun 15"},{id:"g3",home:"Bélgica",away:"Irán",date:"Jun 21"},{id:"g4",home:"Nueva Zelanda",away:"Egipto",date:"Jun 21"},{id:"g5",home:"Egipto",away:"Irán",date:"Jun 26"},{id:"g6",home:"Nueva Zelanda",away:"Bélgica",date:"Jun 26"}]},
-  {name:"Grupo H",matches:[{id:"h1",home:"España",away:"Cabo Verde",date:"Jun 15"},{id:"h2",home:"Arabia Saudita",away:"Uruguay",date:"Jun 15"},{id:"h3",home:"España",away:"Arabia Saudita",date:"Jun 21"},{id:"h4",home:"Uruguay",away:"Cabo Verde",date:"Jun 21"},{id:"h5",home:"Cabo Verde",away:"Arabia Saudita",date:"Jun 26"},{id:"h6",home:"Uruguay",away:"España",date:"Jun 26"}]},
-  {name:"Grupo I",matches:[{id:"i1",home:"Francia",away:"Senegal",date:"Jun 16"},{id:"i2",home:"Irak",away:"Noruega",date:"Jun 16"},{id:"i3",home:"Francia",away:"Irak",date:"Jun 22"},{id:"i4",home:"Noruega",away:"Senegal",date:"Jun 22"},{id:"i5",home:"Senegal",away:"Irak",date:"Jun 26"},{id:"i6",home:"Noruega",away:"Francia",date:"Jun 26"}]},
-  {name:"Grupo J",matches:[{id:"j1",home:"Argentina",away:"Argelia",date:"Jun 16"},{id:"j2",home:"Austria",away:"Jordania",date:"Jun 16"},{id:"j3",home:"Argentina",away:"Austria",date:"Jun 22"},{id:"j4",home:"Jordania",away:"Argelia",date:"Jun 22"},{id:"j5",home:"Argelia",away:"Austria",date:"Jun 26"},{id:"j6",home:"Jordania",away:"Argentina",date:"Jun 26"}]},
-  {name:"Grupo K",matches:[{id:"k1",home:"Portugal",away:"RD Congo",date:"Jun 17"},{id:"k2",home:"Uzbekistán",away:"Colombia",date:"Jun 17"},{id:"k3",home:"Portugal",away:"Uzbekistán",date:"Jun 23"},{id:"k4",home:"Colombia",away:"RD Congo",date:"Jun 23"},{id:"k5",home:"RD Congo",away:"Uzbekistán",date:"Jun 27"},{id:"k6",home:"Colombia",away:"Portugal",date:"Jun 27"}]},
-  {name:"Grupo L",matches:[{id:"l1",home:"Inglaterra",away:"Croacia",date:"Jun 17"},{id:"l2",home:"Ghana",away:"Panamá",date:"Jun 17"},{id:"l3",home:"Inglaterra",away:"Ghana",date:"Jun 23"},{id:"l4",home:"Panamá",away:"Croacia",date:"Jun 23"},{id:"l5",home:"Croacia",away:"Ghana",date:"Jun 27"},{id:"l6",home:"Panamá",away:"Inglaterra",date:"Jun 27"}]},
+  {name:"Grupo A",ids:["a1","a2","a3","a4","a5","a6"]},
+  {name:"Grupo B",ids:["b1","b2","b3","b4","b5","b6"]},
+  {name:"Grupo C",ids:["c1","c2","c3","c4","c5","c6"]},
+  {name:"Grupo D",ids:["d1","d2","d3","d4","d5","d6"]},
+  {name:"Grupo E",ids:["e1","e2","e3","e4","e5","e6"]},
+  {name:"Grupo F",ids:["f1","f2","f3","f4","f5","f6"]},
+  {name:"Grupo G",ids:["g1","g2","g3","g4","g5","g6"]},
+  {name:"Grupo H",ids:["h1","h2","h3","h4","h5","h6"]},
+  {name:"Grupo I",ids:["i1","i2","i3","i4","i5","i6"]},
+  {name:"Grupo J",ids:["j1","j2","j3","j4","j5","j6"]},
+  {name:"Grupo K",ids:["k1","k2","k3","k4","k5","k6"]},
+  {name:"Grupo L",ids:["l1","l2","l3","l4","l5","l6"]},
 ];
 
 const SCORES=[];for(let i=0;i<=5;i++)for(let j=0;j<=5;j++)SCORES.push(i+'-'+j);
 const MAX_BID=20000;
 
 let db,currentUser='',currentGroupId='',currentGroupName='',auctionData={bids:{}},currentMatch=null;
+let unsubscribe=null;
 
 function docId(){return 'mundial2026_'+currentGroupId}
 function fmt(n){return n?'$'+n.toLocaleString('es-CO'):''}
@@ -232,78 +311,86 @@ function pct(n){return Math.min(100,Math.round((n/MAX_BID)*100))}
 function safeId(s){return s.replace(/[^a-z0-9]/gi,'_')}
 function setStatus(msg,live){document.getElementById('stext').textContent=msg;document.getElementById('sdot').className=live?'live':''}
 function showMsg(key,msg,type){const el=document.getElementById('m_'+safeId(key));if(!el)return;el.textContent=msg;el.className='card-msg '+type;setTimeout(()=>{el.textContent='';el.className='card-msg'},3000)}
-function getAllMatches(){return GROUPS_FIFA.flatMap(g=>g.matches)}
-function getMatch(id){return getAllMatches().find(m=>m.id===id)}
+function getMatch(id){return MATCHES_DATA.find(m=>m.id===id)}
 function getMatchBids(mid){return(auctionData.bids&&auctionData.bids[mid])||{}}
 
-// ── SCREENS ──
-function showScreen(id){
-  ['screen-group','screen-identity','screen-main'].forEach(s=>{
-    document.getElementById(s).classList.toggle('active',s===id)
-  })
+// ── TIME HELPERS (Colombia = UTC-5) ──
+function nowCOL(){
+  const now=new Date();
+  // UTC offset for Colombia is -5h
+  const utc=now.getTime()+now.getTimezoneOffset()*60000;
+  return new Date(utc+(-5)*3600000);
 }
+function kickoffDate(ko){
+  // ko = [year, month0, day, hour, min] in COL time
+  // We create the date as UTC+0 then adjust
+  const d=new Date(Date.UTC(ko[0],ko[1],ko[2],ko[3]+5,ko[4]));
+  return d;
+}
+function isMatchClosed(ko){
+  const now=new Date();
+  const ko_utc=kickoffDate(ko);
+  return now>=ko_utc;
+}
+function minutesUntil(ko){
+  const now=new Date();
+  const ko_utc=kickoffDate(ko);
+  return Math.round((ko_utc-now)/60000);
+}
+function kickoffLabel(ko){
+  const mins=minutesUntil(ko);
+  if(mins<0) return{label:'Cerrado',cls:'closed'};
+  if(mins<60) return{label:'Cierra en '+mins+' min',cls:'soon'};
+  const h=ko[3].toString().padStart(2,'0');
+  const m=ko[4].toString().padStart(2,'0');
+  return{label:'Kickoff '+h+':'+m+' COL',cls:'open'};
+}
+function matchPot(mid){
+  const bids=getMatchBids(mid);
+  return Object.values(bids).reduce((s,b)=>s+(b&&b.amount?b.amount:0),0);
+}
+
+// ── SCREENS ──
+function showScreen(id){['screen-group','screen-identity','screen-main'].forEach(s=>{document.getElementById(s).classList.toggle('active',s===id)})}
 
 // ── GROUP SCREEN ──
 function renderGroupScreen(){
-  const c=document.getElementById('group-cards');
-  c.innerHTML='';
+  const c=document.getElementById('group-cards');c.innerHTML='';
   PREDEFINED_GROUPS.forEach(g=>{
-    const d=document.createElement('div');
-    d.className='group-card';
+    const d=document.createElement('div');d.className='group-card';
     d.innerHTML='<div><div class="group-card-name">'+g.name+'</div><div class="group-card-desc">'+g.desc+'</div></div><span class="group-card-arrow">›</span>';
-    d.onclick=()=>enterGroup(g.id,g.name);
-    c.appendChild(d);
+    d.onclick=()=>enterGroup(g.id,g.name);c.appendChild(d);
   });
 }
-
 function enterGroup(id,name){
   currentGroupId=id;currentGroupName=name;
-  localStorage.setItem('mundial_group_id',id);
-  localStorage.setItem('mundial_group_name',name);
+  localStorage.setItem('mundial_group_id',id);localStorage.setItem('mundial_group_name',name);
   document.getElementById('identity-title').textContent='Grupo: '+name;
-  showScreen('screen-identity');
-  document.getElementById('name-input-big').focus();
+  showScreen('screen-identity');document.getElementById('name-input-big').focus();
 }
-
 document.getElementById('code-btn').addEventListener('click',()=>{
   const code=document.getElementById('code-input').value.trim().toUpperCase();
   const found=PREDEFINED_GROUPS.find(g=>g.code===code);
-  if(found){
-    document.getElementById('code-error').textContent='';
-    enterGroup(found.id,found.name);
-  } else if(code.length>=4){
-    // Accept any code as a custom group
-    const name=code;
-    document.getElementById('code-error').textContent='';
-    enterGroup(code.toLowerCase(),name);
-  } else {
-    document.getElementById('code-error').textContent='Código inválido. Mínimo 4 caracteres.';
-  }
+  if(found){document.getElementById('code-error').textContent='';enterGroup(found.id,found.name);}
+  else if(code.length>=4){document.getElementById('code-error').textContent='';enterGroup(code.toLowerCase(),code);}
+  else document.getElementById('code-error').textContent='Código inválido. Mínimo 4 caracteres.';
 });
 document.getElementById('code-input').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('code-btn').click()});
-document.getElementById('change-group-link').addEventListener('click',()=>{
-  showScreen('screen-group');
-});
+document.getElementById('change-group-link').addEventListener('click',()=>showScreen('screen-group'));
 
-// ── IDENTITY SCREEN ──
+// ── IDENTITY ──
 document.getElementById('name-btn-big').addEventListener('click',()=>{
-  const name=document.getElementById('name-input-big').value.trim();
-  if(!name)return;
-  currentUser=name;
-  localStorage.setItem('mundial_user',name);
-  launchApp();
+  const name=document.getElementById('name-input-big').value.trim();if(!name)return;
+  currentUser=name;localStorage.setItem('mundial_user',name);launchApp();
 });
 document.getElementById('name-input-big').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('name-btn-big').click()});
 
-// ── LAUNCH APP ──
-let unsubscribe=null;
+// ── LAUNCH ──
 async function launchApp(){
   document.getElementById('user-info').textContent='👤 '+currentUser+' · 🏟 '+currentGroupName;
-  document.getElementById('group-badge').textContent=currentGroupName;
-  document.getElementById('group-badge').style.display='inline';
+  document.getElementById('group-badge').textContent=currentGroupName;document.getElementById('group-badge').style.display='inline';
   showScreen('screen-main');
-  document.getElementById('matches-view').classList.add('active');
-  document.getElementById('scores-view').classList.remove('active');
+  document.getElementById('matches-view').classList.add('active');document.getElementById('scores-view').classList.remove('active');
   if(unsubscribe)unsubscribe();
   const ref=doc(db,'subastas',docId());
   const snap=await getDoc(ref);
@@ -317,14 +404,10 @@ async function launchApp(){
 
 document.getElementById('change-user-btn').addEventListener('click',()=>{
   if(unsubscribe){unsubscribe();unsubscribe=null}
-  currentUser='';currentGroupId='';currentGroupName='';currentMatch=null;
-  auctionData={bids:{}};
+  currentUser='';currentGroupId='';currentGroupName='';currentMatch=null;auctionData={bids:{}};
   document.getElementById('group-badge').style.display='none';
-  document.getElementById('code-input').value='';
-  document.getElementById('name-input-big').value='';
-  renderGroupScreen();
-  showScreen('screen-group');
-  setStatus('Desconectado',false);
+  document.getElementById('code-input').value='';document.getElementById('name-input-big').value='';
+  renderGroupScreen();showScreen('screen-group');setStatus('Desconectado',false);
 });
 
 // ── MATCHES VIEW ──
@@ -333,15 +416,20 @@ function renderMatchesView(){
   GROUPS_FIFA.forEach(g=>{
     const div=document.createElement('div');
     let html='<div class="group-title">'+g.name+'</div><div class="matches-grid">';
-    g.matches.forEach(m=>{
-      const bids=getMatchBids(m.id);
+    g.ids.forEach(mid=>{
+      const m=getMatch(mid);if(!m)return;
+      const bids=getMatchBids(mid);
       const cnt=Object.values(bids).filter(b=>b&&b.amount>0).length;
       const top=Math.max(0,...Object.values(bids).map(b=>b?b.amount||0:0));
-      html+='<div class="match-card'+(cnt>0?' has-bids':'')+'" onclick="window._ss(\''+m.id+'\')">'
+      const pot=matchPot(mid);
+      const closed=isMatchClosed(m.ko);
+      const kl=kickoffLabel(m.ko);
+      html+='<div class="match-card'+(cnt>0?' has-bids':'')+(closed?' closed':'')+'" onclick="window._ss(\''+mid+'\')">'
         +'<div class="mc-teams">'+m.home+'<span class="mc-vs">vs</span>'+m.away+'</div>'
         +'<div class="mc-date">'+m.date+'</div>'
+        +'<div class="mc-kickoff '+kl.cls+'">'+kl.label+'</div>'
         +'<div class="mc-stats"><span class="mc-bid-count">'+cnt+'/36</span>'
-        +(top>0?'<span class="mc-top-bid">'+fmt(top)+'</span>':'')
+        +(pot>0?'<span class="mc-pot">Pozo: '+fmt(pot)+'</span>':'')
         +'<span class="mc-arrow">›</span></div></div>';
     });
     html+='</div>';div.innerHTML=html;c.appendChild(div);
@@ -352,35 +440,51 @@ function renderMatchesView(){
 // ── SCORES VIEW ──
 function renderScoresView(){
   const m=getMatch(currentMatch);if(!m)return;
-  document.getElementById('match-header').innerHTML='<div class="match-teams">'+m.home+'<span class="match-vs">vs</span>'+m.away+'</div><div class="match-meta">'+m.date+' · Fase de grupos</div>';
-  const grid=document.getElementById('scores-grid');grid.innerHTML='';
+  const closed=isMatchClosed(m.ko);
+  const kl=kickoffLabel(m.ko);
+  const pot=matchPot(currentMatch);
   const bids=getMatchBids(currentMatch);
+  const cnt=Object.values(bids).filter(b=>b&&b.amount>0).length;
+  document.getElementById('match-header').innerHTML=
+    '<div class="match-teams">'+m.home+'<span class="match-vs">vs</span>'+m.away+'</div>'
+    +'<div class="match-meta">'+m.date+'</div>'
+    +'<div class="match-totals">'
+      +'<div class="match-total-pill">Pozo total: <span>'+fmt(pot)+'</span></div>'
+      +'<div class="match-total-pill">Marcadores vendidos: <span>'+cnt+'/36</span></div>'
+    +'</div>'
+    +(closed?'<div class="match-closed-banner">🔒 Subasta cerrada — el partido ya comenzó</div>':'<div class="match-closed-banner" style="background:#1a3a1a;border-color:#2a6a2a;color:#aaffaa">🟢 '+kl.label+' — Subasta abierta</div>');
+
+  const grid=document.getElementById('scores-grid');grid.innerHTML='';
   SCORES.forEach(score=>{
     const bid=(bids[score])||{amount:0,user:''};
     const isMine=bid.user===currentUser&&!!currentUser;
     const isSold=bid.amount>=MAX_BID;
     const parts=score.split('-');
-    const canBid=!!currentUser&&!isSold;
+    const canBid=!!currentUser&&!isSold&&!closed;
     const minNext=Math.max(bid.amount+1000,1000);
     const key=currentMatch+'_'+score;
     const card=document.createElement('div');
     card.className='score-card'+(isMine?' mine':'')+(isSold?' sold':'');
+    const btnClass=isSold?'locked':closed?'closed-match':'';
+    const btnLabel=isSold?'🔒':closed?'⏱':'Pujar';
     card.innerHTML='<div class="score-display">'+parts[0]+'<span class="sep">–</span>'+parts[1]+'</div>'
       +'<div class="bid-info">'+(bid.amount>0?'<div class="current-bid">'+fmt(bid.amount)+'</div><div class="bidder-name">👤 '+bid.user+'</div>':'<div class="bid-zero">Sin pujas</div>')+'</div>'
       +'<div class="progress-wrap"><div class="progress-bar'+(pct(bid.amount)>=100?' full':'')+'" style="width:'+pct(bid.amount)+'%"></div></div>'
       +'<div class="mine-tag">⭐ TUYO</div>'
-      +'<div class="bid-row"><input class="bid-input" type="number" min="'+minNext+'" max="'+MAX_BID+'" step="1000" placeholder="'+(isSold?'Adjudicado':fmt(minNext))+'" '+(canBid?'':'disabled')+' data-match="'+currentMatch+'" data-score="'+score+'"/>'
-      +'<button class="bid-btn'+(isSold?' locked':'')+'" '+(canBid?'':'disabled')+' data-match="'+currentMatch+'" data-score="'+score+'">'+(isSold?'🔒':'Pujar')+'</button></div>'
+      +'<div class="bid-row"><input class="bid-input" type="number" min="'+minNext+'" max="'+MAX_BID+'" step="1000" placeholder="'+(isSold?'Adjudicado':closed?'Cerrado':fmt(minNext))+'" '+(canBid?'':'disabled')+' data-match="'+currentMatch+'" data-score="'+score+'"/>'
+      +'<button class="bid-btn '+btnClass+'" '+(!canBid?'disabled':'')+' data-match="'+currentMatch+'" data-score="'+score+'">'+btnLabel+'</button></div>'
       +'<div class="card-msg" id="m_'+safeId(key)+'"></div>';
     grid.appendChild(card);
   });
-  grid.querySelectorAll('.bid-btn:not([disabled]):not(.locked)').forEach(b=>{b.addEventListener('click',()=>handleBid(b.dataset.match,b.dataset.score))});
+  grid.querySelectorAll('.bid-btn:not([disabled])').forEach(b=>{b.addEventListener('click',()=>handleBid(b.dataset.match,b.dataset.score))});
   grid.querySelectorAll('.bid-input:not([disabled])').forEach(inp=>{inp.addEventListener('keydown',e=>{if(e.key==='Enter')handleBid(inp.dataset.match,inp.dataset.score)})});
 }
 
 // ── BID ──
 async function handleBid(matchId,score){
   if(!currentUser){alert('Primero escribe tu nombre.');return}
+  const m=getMatch(matchId);
+  if(m&&isMatchClosed(m.ko)){alert('La subasta para este partido ya está cerrada.');return}
   const inp=document.querySelector('.bid-input[data-match="'+matchId+'"][data-score="'+score+'"]');
   const amount=parseInt(inp?.value);
   const key=matchId+'_'+score;
@@ -437,15 +541,10 @@ async function init(){
   setStatus('Conectando...',false);
   const app=initializeApp(cfg);db=getFirestore(app);
   renderGroupScreen();
-
-  // Check saved session
   const savedGroup=localStorage.getItem('mundial_group_id');
   const savedGroupName=localStorage.getItem('mundial_group_name');
   const savedUser=localStorage.getItem('mundial_user');
-  if(savedGroup&&savedGroupName&&savedUser){
-    currentGroupId=savedGroup;currentGroupName=savedGroupName;currentUser=savedUser;
-    await launchApp();
-  }
+  if(savedGroup&&savedGroupName&&savedUser){currentGroupId=savedGroup;currentGroupName=savedGroupName;currentUser=savedUser;await launchApp();}
 }
 init();
 </script>
