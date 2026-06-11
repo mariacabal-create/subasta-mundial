@@ -458,8 +458,8 @@ async function init() {
     appId:             "1:131558231258:web:1c2350d0496ef42a1ea9e3"
   };
 
-  document.getElementById('config-screen').style.display = 'none';
-  document.getElementById('main-app').style.display      = 'block';
+  const mainApp = document.getElementById('main-app');
+  if (mainApp) mainApp.style.display = 'block';
 
   try {
     const app = initializeApp(cfg);
